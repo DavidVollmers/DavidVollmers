@@ -76,5 +76,23 @@ namespace DavidVollmers.Website {
                 return ResourceManager.GetString("FooterText", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My career.
+        /// </summary>
+        public static string MyCareerHeading {
+            get {
+                return ResourceManager.GetString("MyCareerHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It ain&apos;t much but it&apos;s honest work..
+        /// </summary>
+        public static string MyCareerText {
+            get {
+                return ResourceManager.GetString("MyCareerText", resourceCulture);
+            }
+        }
     }
 }

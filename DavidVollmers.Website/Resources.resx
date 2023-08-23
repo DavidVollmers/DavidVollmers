@@ -24,4 +24,10 @@
     <data name="FooterText" xml:space="preserve">
         <value>Made with &lt;span class="text-red-500"&gt;♥&lt;/span&gt; using &lt;a class="text-ignis" href="https://ignis.dvolper.dev"&gt;Ignis&lt;/a&gt;.</value>
     </data>
+    <data name="MyCareerHeading" xml:space="preserve">
+        <value>My career</value>
+    </data>
+    <data name="MyCareerText" xml:space="preserve">
+        <value>It ain't much but it's honest work.</value>
+    </data>
 </root>

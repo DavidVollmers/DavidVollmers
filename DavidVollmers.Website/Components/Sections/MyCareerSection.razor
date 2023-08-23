@@ -1,0 +1,60 @@
+﻿@inherits IgnisRigidComponentBase
+@inject IStringLocalizer<Resources> Resources
+
+<div class="px-6 py-32 lg:px-8">
+    <div class="mx-auto max-w-3xl text-base leading-7 text-gray-300">
+        <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">
+            @Resources["MyCareerHeading"]
+        </h1>
+        <p class="mt-6 text-xl leading-8">
+            @Resources["MyCareerText"]
+        </p>
+        @foreach (var path in _careerPath)
+        {
+            <div class="mt-10 max-w-2xl">
+                <div class="flow-root">
+                    <ul role="list" class="-mb-8">
+                        @foreach (var node in path)
+                        {
+                            if (node.Type == CareerPathType.Latest)
+                            {
+                                <div class="relative">
+                                    <Dynamic AsComponent="node.Icon"
+                                             class="flex h-10 w-10 items-center justify-center rounded-full ring-8 ring-gunmetal"/>
+                                </div>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code
+{
+    private readonly CareerPathNode[][] _careerPath =
+    {
+        new CareerPathNode[]
+        {
+            new()
+            {
+                Type = CareerPathType.Latest,
+                Icon = typeof(Matrix42LogoIcon)
+            }
+        }
+    };
+
+    private class CareerPathNode
+    {
+        public CareerPathType Type { get; set; }
+
+        public Type Icon { get; set; } = null!;
+    }
+
+    private enum CareerPathType
+    {
+        Latest,
+        Descendant,
+    }
+}
