@@ -78,6 +78,24 @@ namespace DavidVollmers.Website {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to from.
+        /// </summary>
+        public static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We simplify and secure digital work..
+        /// </summary>
+        public static string Matrix42Description {
+            get {
+                return ResourceManager.GetString("Matrix42Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to months.
         /// </summary>
         public static string Months {
@@ -101,6 +119,15 @@ namespace DavidVollmers.Website {
         public static string MyCareerText {
             get {
                 return ResourceManager.GetString("MyCareerText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to to.
+        /// </summary>
+        public static string To {
+            get {
+                return ResourceManager.GetString("To", resourceCulture);
             }
         }
         
