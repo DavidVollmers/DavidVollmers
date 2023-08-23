@@ -96,6 +96,15 @@ namespace DavidVollmers.Website {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information technology and services company..
+        /// </summary>
+        public static string MgSoftechDescription {
+            get {
+                return ResourceManager.GetString("MgSoftechDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to months.
         /// </summary>
         public static string Months {

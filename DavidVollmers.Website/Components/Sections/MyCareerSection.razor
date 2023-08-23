@@ -118,7 +118,39 @@
                 CssClass = "bg-orange-600 text-white",
                 Title = "Software Engineer",
                 From = new DateTime(2018, 12, 1),
-                To = new DateTime(2023, 2, 1)
+                To = new DateTime(2023, 1, 31)
+            }
+        },
+        new CareerPathNode[]
+        {
+            new()
+            {
+                Type = CareerPathType.Latest,
+                Icon = typeof(MgSoftechLogoIcon),
+                CssClass = "bg-white",
+                Link = "https://www.mgsoftech.com/",
+                Title = "mg.softech",
+                From = new DateTime(2014, 6, 1),
+                To = new DateTime(2018, 11, 30),
+                Description = Website.Resources.MgSoftechDescription
+            },
+            new()
+            {
+                Type = CareerPathType.Descendant,
+                Icon = typeof(UserCircleIcon),
+                CssClass = "bg-white text-gunmetal",
+                Title = "Software Engineer",
+                From = new DateTime(2017, 6, 1),
+                To = new DateTime(2018, 11, 30)
+            },
+            new()
+            {
+                Type = CareerPathType.Descendant,
+                Icon = typeof(AcademicCapIcon),
+                CssClass = "bg-white text-gunmetal",
+                Title = "Apprenticeship",
+                From = new DateTime(2014, 6, 1),
+                To = new DateTime(2017, 5, 31)
             }
         }
     };
@@ -129,7 +161,7 @@
         var years = timeSpan.Days / 365;
         var months = (int)Math.Ceiling(timeSpan.Days / 30.437 - years * 12);
         if (years == 0) return $"{months} {Resources["Months"]}";
-        return $"{years} {Resources["Years"]} {months} {Resources["Months"]}";
+        return months == 0 ? $"{years} {Resources["Years"]}" : $"{years} {Resources["Years"]} {months} {Resources["Months"]}";
     }
 
     private class CareerPathNode : ICssClass
