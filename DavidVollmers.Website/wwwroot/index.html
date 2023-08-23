@@ -13,13 +13,25 @@
     <meta name="theme-color" content="#31393e">
     <title>&lt;dvolper /&gt;</title>
     <base href="/"/>
+    <link rel="prefetch" href="assets/avataaars.json"/>
     <script defer type="text/javascript" src="_content/Ignis.Components.Web/min.js"></script>
-    <script defer type="text/javascript" src="js/website.min.js"></script>
+    <script type="text/javascript" src="js/website.min.js"></script>
     <link href="css/website.min.css" rel="stylesheet"/>
 </head>
 
 <body class="bg-gunmetal">
-<div id="app">Loading...</div>
+<div id="app">
+    <div class="flex h-screen">
+        <div class="m-auto">
+            <div class="h-48 w-full object-cover">
+                <div id="lottie-animation-loading" class="h-full"></div>
+                <script type="text/javascript">
+                    playAnimation(document.getElementById('lottie-animation-loading'), 'assets/avataaars.json');
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="blazor-error-ui">
     An unhandled error has occurred.
