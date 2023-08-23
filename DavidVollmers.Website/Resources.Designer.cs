@@ -87,6 +87,24 @@ namespace DavidVollmers.Website {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GitHub Stats.
+        /// </summary>
+        public static string GitHubStatsHeading {
+            get {
+                return ResourceManager.GetString("GitHubStatsHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most used languages.
+        /// </summary>
+        public static string LanguageStatsHeading {
+            get {
+                return ResourceManager.GetString("LanguageStatsHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to We simplify and secure digital work..
         /// </summary>
         public static string Matrix42Description {

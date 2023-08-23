@@ -51,4 +51,10 @@
     <data name="StatsHeading" xml:space="preserve">
         <value>Stats</value>
     </data>
+    <data name="LanguageStatsHeading" xml:space="preserve">
+        <value>Most used languages</value>
+    </data>
+    <data name="GitHubStatsHeading" xml:space="preserve">
+        <value>GitHub Stats</value>
+    </data>
 </root>

@@ -6,9 +6,18 @@
         <h1 id="stats" class="sr-only">
             @Resources["StatsHeading"]
         </h1>
-        <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+        <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-2">
             <div class="mx-auto flex max-w-xs flex-col gap-y-4">
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=DavidVollmers&layout=compact&theme=transparent" alt=""/>
+                <dt class="text-base leading-7 text-gray-100">
+                    @Resources["LanguageStatsHeading"]
+                </dt>
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=DavidVollmers&layout=compact&theme=transparent&text_color=d1d5db&hide_border=true&hide_title=true" alt=""/>
+            </div>
+            <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+                <dt class="text-base leading-7 text-gray-100">
+                    @Resources["GitHubStatsHeading"]
+                </dt>
+                <img src="https://github-readme-stats.vercel.app/api?username=DavidVollmers&count_private=true&show_icons=true&hide_rank=true&theme=transparent&text_color=d1d5db&hide_border=true&hide_title=true" alt=""/>
             </div>
         </dl>
     </div>
