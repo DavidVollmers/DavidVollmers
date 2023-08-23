@@ -150,6 +150,15 @@ namespace DavidVollmers.Website {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My projects.
+        /// </summary>
+        public static string MyProjectsHeading {
+            get {
+                return ResourceManager.GetString("MyProjectsHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stats.
         /// </summary>
         public static string StatsHeading {

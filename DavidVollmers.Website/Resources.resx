@@ -57,4 +57,7 @@
     <data name="GitHubStatsHeading" xml:space="preserve">
         <value>GitHub Stats</value>
     </data>
+    <data name="MyProjectsHeading" xml:space="preserve">
+        <value>My projects</value>
+    </data>
 </root>
