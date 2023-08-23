@@ -1,5 +1,53 @@
-﻿@inherits LayoutComponentBase
+﻿@using Microsoft.Extensions.Localization
+@using DavidVollmers.Website.Components.Icons
+@inherits IgnisRigidComponentBase
+@inject IStringLocalizer<Resources> Resources
 
 <main>
     @Body
 </main>
+
+<footer aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">
+        @Resources["FooterHeading"]
+    </h2>
+    <div class="mt-8 border-t border-white/10 pt-8 md:flex md:items-center md:justify-between">
+        <div class="flex space-x-6 md:order-2">
+            @foreach (var item in _socials)
+            {
+                <a @key="item.Name" href="@item.Link" class="text-gray-500 hover:text-gray-400">
+                    <span class="sr-only">@item.Name</span>
+                    <Dynamic AsComponent="item.Icon" class="h-6 w-6"></Dynamic>
+                </a>
+            }
+        </div>
+        <p class="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
+            @((MarkupString)(string)Resources["FooterText"])
+        </p>
+    </div>
+</footer>
+
+@code
+{
+    private readonly FooterNavigationItem[] _socials =
+    {
+        new()
+        {
+            Name = "GitHub",
+            Link = "https://github.com/DavidVollmers",
+            Icon = typeof(GitHubIcon)
+        }
+    };
+
+    [Parameter]
+    public RenderFragment? Body { get; set; }
+
+    private class FooterNavigationItem
+    {
+        public string Name { get; set; } = null!;
+
+        public string Link { get; set; } = null!;
+
+        public Type Icon { get; set; } = null!;
+    }
+}

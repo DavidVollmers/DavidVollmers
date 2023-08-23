@@ -11,10 +11,11 @@
         <PackageReference Include="Ignis.Components.WebAssembly" Version="0.7.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.5"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.5" PrivateAssets="all"/>
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.10" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="wwwroot\css\" />
+        <Folder Include="wwwroot\css\"/>
         <Folder Include="wwwroot\fonts\"/>
     </ItemGroup>
 
@@ -25,6 +26,21 @@
         <Content Update="package-lock.json">
             <CopyToPublishDirectory>Never</CopyToPublishDirectory>
         </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Resources.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">

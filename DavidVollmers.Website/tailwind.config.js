@@ -5,7 +5,6 @@ module.exports = {
     content: [
         '**/*.{razor,html,cshtml,js}',
     ],
-    darkMode: 'class',
     theme: {
         extend: {
             fontFamily: {
@@ -19,4 +18,7 @@ module.exports = {
         },
     },
     plugins: [require('@tailwindcss/typography')],
+    safelist: [
+        'color-red-500',
+    ]
 }
