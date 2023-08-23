@@ -1,4 +1,5 @@
-﻿@inherits IgnisRigidComponentBase
+﻿@using Ignis.Components.Web
+@inherits IgnisRigidComponentBase
 @inject IStringLocalizer<Resources> Resources
 
 <div class="px-6 py-32 lg:px-8">
@@ -20,7 +21,7 @@
                             {
                                 <div class="relative">
                                     <Dynamic AsComponent="node.Icon"
-                                             class="flex h-10 w-10 items-center justify-center rounded-full ring-8 ring-gunmetal"/>
+                                             class="@Css.Class("flex h-10 w-10 items-center justify-center rounded-full ring-8 ring-gunmetal", node)"/>
                                 </div>
                             }
                         }
@@ -40,16 +41,19 @@
             new()
             {
                 Type = CareerPathType.Latest,
-                Icon = typeof(Matrix42LogoIcon)
+                Icon = typeof(Matrix42LogoIcon),
+                CssClass = "bg-white"
             }
         }
     };
 
-    private class CareerPathNode
+    private class CareerPathNode : ICssClass
     {
         public CareerPathType Type { get; set; }
 
         public Type Icon { get; set; } = null!;
+        
+        public string? CssClass { get; set; }
     }
 
     private enum CareerPathType
