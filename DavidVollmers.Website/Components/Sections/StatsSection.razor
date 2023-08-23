@@ -1,0 +1,15 @@
+﻿@inherits IgnisRigidComponentBase
+@inject IStringLocalizer<Resources> Resources
+
+<section class="py-24 sm:py-32" aria-labelledby="stats">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <h1 id="stats" class="sr-only">
+            @Resources["StatsHeading"]
+        </h1>
+        <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+            <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=DavidVollmers&layout=compact&theme=transparent" alt=""/>
+            </div>
+        </dl>
+    </div>
+</section>
