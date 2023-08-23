@@ -22,6 +22,6 @@
         <value>Footer</value>
     </data>
     <data name="FooterText" xml:space="preserve">
-        <value>Made with &lt;span class="color-red-500"&gt;♥&lt;/span&gt; using &lt;a href="https://ignis.dvolper.dev"&gt;Ignis&lt;/a&gt;.</value>
+        <value>Made with &lt;span class="text-red-500"&gt;♥&lt;/span&gt; using &lt;a class="text-ignis" href="https://ignis.dvolper.dev"&gt;Ignis&lt;/a&gt;.</value>
     </data>
 </root>

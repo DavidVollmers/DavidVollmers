@@ -12,6 +12,7 @@ module.exports = {
                 display: ['Ubuntu Mono', ...defaultTheme.fontFamily.sans],
             },
             colors: {
+                ignis: '#ef454c',
                 gunmetal: '#31393e',
                 'lavender-blush': '#eee5e9'
             }
@@ -19,6 +20,7 @@ module.exports = {
     },
     plugins: [require('@tailwindcss/typography')],
     safelist: [
-        'color-red-500',
+        'text-red-500',
+        'text-ignis'
     ]
 }

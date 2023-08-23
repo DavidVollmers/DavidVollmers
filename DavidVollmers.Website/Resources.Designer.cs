@@ -69,7 +69,7 @@ namespace DavidVollmers.Website {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Made with &lt;span class=&quot;color-red-500&quot;&gt;♥&lt;/span&gt; using &lt;a href=&quot;https://ignis.dvolper.dev&quot;&gt;Ignis&lt;/a&gt;..
+        ///   Looks up a localized string similar to Made with &lt;span class=&quot;text-red-500&quot;&gt;♥&lt;/span&gt; using &lt;a class=&quot;text-ignis&quot; href=&quot;https://ignis.dvolper.dev&quot;&gt;Ignis&lt;/a&gt;..
         /// </summary>
         public static string FooterText {
             get {
