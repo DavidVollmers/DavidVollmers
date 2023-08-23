@@ -15,15 +15,38 @@
             <div class="mt-10 max-w-2xl">
                 <div class="flow-root">
                     <ul role="list" class="-mb-8">
-                        @foreach (var node in path)
+                        @for (var index = 0; index < path.Length; index++)
                         {
-                            if (node.Type == CareerPathType.Latest)
-                            {
-                                <div class="relative">
-                                    <Dynamic AsComponent="node.Icon"
-                                             class="@Css.Class("flex h-10 w-10 items-center justify-center rounded-full ring-8 ring-gunmetal", node)"/>
+                            var node = path[index];
+                            <li @key="index">
+                                <div class="relative pb-8">
+                                    @if (index != path.Length - 1)
+                                    {
+                                        <span class="absolute left-5 top-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+                                    }
+                                    <div class="relative flex items-start space-x-3">
+                                        @if (node.Type == CareerPathType.Latest)
+                                        {
+                                            <div class="relative">
+                                                <Dynamic AsComponent="@node.Icon"
+                                                         class="@Css.Class("flex h-10 w-10 items-center justify-center rounded-lg ring-8 ring-gunmetal", node)"/>
+                                            </div>
+                                            <div class="min-w-0 flex-1">
+                                                <div>
+                                                    <div class="text-sm">
+                                                        <a href="@node.Link" class="font-medium text-gray-100">
+                                                            @node.Title
+                                                        </a>
+                                                    </div>
+                                                    <p class="mt-0.5 text-sm text-gray-300">
+                                                        @FormatTimeSpan(node)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
-                            }
+                            </li>
                         }
                     </ul>
                 </div>
@@ -42,18 +65,36 @@
             {
                 Type = CareerPathType.Latest,
                 Icon = typeof(Matrix42LogoIcon),
-                CssClass = "bg-white"
+                CssClass = "bg-white",
+                Link = "https://www.matrix42.com/en/",
+                Title = "Matrix42",
+                From = new DateTime(2018, 12, 1),
+                To = DateTime.Now
             }
         }
     };
+
+    private string FormatTimeSpan(CareerPathNode node)
+    {
+        var timeSpan = node.To - node.From;
+        return $"{timeSpan.Days / 365} {Resources["Years"]} {(int)Math.Ceiling(timeSpan.Days / 30.437)} {Resources["Months"]}";
+    }
 
     private class CareerPathNode : ICssClass
     {
         public CareerPathType Type { get; set; }
 
         public Type Icon { get; set; } = null!;
-        
+
         public string? CssClass { get; set; }
+
+        public string Link { get; set; } = null!;
+
+        public string Title { get; set; } = null!;
+
+        public DateTime From { get; set; }
+
+        public DateTime To { get; set; }
     }
 
     private enum CareerPathType

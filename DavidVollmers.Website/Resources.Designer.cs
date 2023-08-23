@@ -78,6 +78,15 @@ namespace DavidVollmers.Website {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to months.
+        /// </summary>
+        public static string Months {
+            get {
+                return ResourceManager.GetString("Months", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My career.
         /// </summary>
         public static string MyCareerHeading {
@@ -92,6 +101,15 @@ namespace DavidVollmers.Website {
         public static string MyCareerText {
             get {
                 return ResourceManager.GetString("MyCareerText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to years.
+        /// </summary>
+        public static string Years {
+            get {
+                return ResourceManager.GetString("Years", resourceCulture);
             }
         }
     }

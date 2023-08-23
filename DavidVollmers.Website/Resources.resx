@@ -30,4 +30,10 @@
     <data name="MyCareerText" xml:space="preserve">
         <value>It ain't much but it's honest work.</value>
     </data>
+    <data name="Years" xml:space="preserve">
+        <value>years</value>
+    </data>
+    <data name="Months" xml:space="preserve">
+        <value>months</value>
+    </data>
 </root>
