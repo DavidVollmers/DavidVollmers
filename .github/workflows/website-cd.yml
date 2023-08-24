@@ -1,0 +1,23 @@
+name: Website CD
+
+on:
+  push:
+    branches: [ 'main' ]
+
+jobs:
+  Publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - run: npm i
+      - run: npm i -g @azure/static-web-apps-cli
+      - run: dotnet build DavidVollmers.Website -c Release
+      - run: dotnet publish DavidVollmers.Website/DavidVollmers.Website.csproj -c Release
+      - run: swa deploy -d ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }} --env production
+        working-directory: DavidVollmers.Website
