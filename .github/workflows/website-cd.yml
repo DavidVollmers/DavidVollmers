@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: 18.x
       - run: npm i
+        working-directory: DavidVollmers.Website
       - run: npm i -g @azure/static-web-apps-cli
       - run: dotnet build DavidVollmers.Website -c Release
       - run: dotnet publish DavidVollmers.Website/DavidVollmers.Website.csproj -c Release
