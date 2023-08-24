@@ -1,0 +1,25 @@
+﻿@inherits IgnisRigidComponentBase
+@implements IHandleAfterRender
+
+<div class="flex h-screen">
+    <div class="m-auto">
+        <div class="h-48 w-full object-cover">
+            <div @ref="_lottie" class="h-full"></div>
+        </div>
+    </div>
+</div>
+
+@code
+{
+    private ElementReference? _lottie;
+
+    [Inject]
+    public IJSRuntime JsRuntime { get; set; } = null!;
+
+    public async Task OnAfterRenderAsync()
+    {
+        if (!_lottie.HasValue) return;
+        
+        await JsRuntime.InvokeVoidAsync("playAnimation", _lottie.Value, "assets/avataaars.json");
+    }
+}
