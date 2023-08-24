@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using DavidVollmers.Website;
@@ -10,6 +11,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddLocalization();
+CultureInfo.CurrentUICulture = new CultureInfo("en-US");
 
 builder.Services.AddIgnis();
 builder.Services.AddIgnisWeb();
