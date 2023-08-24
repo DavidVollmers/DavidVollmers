@@ -159,6 +159,15 @@ namespace DavidVollmers.Website {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Scroll down for more!.
+        /// </summary>
+        public static string ScrollHint {
+            get {
+                return ResourceManager.GetString("ScrollHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stats.
         /// </summary>
         public static string StatsHeading {

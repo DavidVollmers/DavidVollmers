@@ -9,7 +9,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Golos Text', ...defaultTheme.fontFamily.sans],
-                display: ['Ubuntu Mono', ...defaultTheme.fontFamily.sans],
+                mono: ['Ubuntu Mono', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 ignis: '#ef454c',

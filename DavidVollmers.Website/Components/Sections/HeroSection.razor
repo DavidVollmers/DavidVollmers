@@ -1,25 +1,52 @@
-﻿@inherits IgnisRigidComponentBase
+﻿@inherits IgnisComponentBase
 @implements IHandleAfterRender
+@inject IJSRuntime JsRuntime
+@inject IStringLocalizer<Resources> Resources
 
-<div class="flex h-screen">
+<ScrollDetector OnScroll="OnScroll"/>
+<div class="flex h-screen relative">
     <div class="m-auto">
-        <div class="h-48 w-full object-cover">
-            <div @ref="_lottie" class="h-full"></div>
+        <div class="md:flex p-8">
+            <div class="md:shrink-0">
+                <div class="h-48 w-full object-cover">
+                    <div @ref="_lottie" class="h-full"></div>
+                </div>
+            </div>
+            <div class="p-12 text-gray-300">
+                <h1 class="text-3xl text-gray-100 font-mono">&lt;dvolper&nbsp;/&gt;</h1>
+                <h2 class="text-lg">David Vollmers, Developer</h2>
+            </div>
         </div>
     </div>
+    @if (!_scrolled)
+    {
+        <div class="absolute inset-x-0 bottom-0 p-8">
+            <p class="text-center text-gray-300">
+                @Resources["ScrollHint"]
+            </p>
+        </div>
+    }
 </div>
 
 @code
 {
     private ElementReference? _lottie;
-
-    [Inject]
-    public IJSRuntime JsRuntime { get; set; } = null!;
+    private bool _initialized;
+    private bool _scrolled;
 
     public async Task OnAfterRenderAsync()
     {
-        if (!_lottie.HasValue) return;
+        if (!_lottie.HasValue || _initialized) return;
+
+        _initialized = true;
         
         await JsRuntime.InvokeVoidAsync("playAnimation", _lottie.Value, "assets/avataaars.json");
+    }
+
+    private void OnScroll(ScrollEventArgs args)
+    {
+        _scrolled = args.ScrollY > 16;
+
+        Update();
     }
 }

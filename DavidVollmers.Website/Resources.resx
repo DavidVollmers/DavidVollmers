@@ -60,4 +60,7 @@
     <data name="MyProjectsHeading" xml:space="preserve">
         <value>My projects</value>
     </data>
+    <data name="ScrollHint" xml:space="preserve">
+        <value>Scroll down for more!</value>
+    </data>
 </root>
