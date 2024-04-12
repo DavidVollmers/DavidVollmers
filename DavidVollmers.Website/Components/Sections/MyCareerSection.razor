@@ -65,8 +65,13 @@
                                                         <span class="whitespace-nowrap">
                                                             @Resources["From"]
                                                             @node.From.ToString("MMM yyyy", CultureInfo.CurrentUICulture)
-                                                            @Resources["To"]
-                                                            @node.To.ToString("MMM yyyy", CultureInfo.CurrentUICulture)
+                                                            @if (node.To.HasValue)
+                                                            {
+                                                                @(" ")
+                                                                @Resources["To"]
+                                                                @(" ")
+                                                                @node.To.Value.ToString("MMM yyyy", CultureInfo.CurrentUICulture)
+                                                            }
                                                             &middot;
                                                             @FormatTimeSpan(node)
                                                         </span>
@@ -107,15 +112,23 @@
                 Type = CareerPathType.Descendant,
                 Icon = typeof(UserCircleIcon),
                 CssClass = "bg-orange-500 text-white",
-                Title = "Technical Lead",
-                From = new DateTime(2023, 2, 1),
-                To = DateTime.Now
+                Title = "Engineering Manager",
+                From = new DateTime(2024, 4, 1)
             },
             new()
             {
                 Type = CareerPathType.Descendant,
                 Icon = typeof(UserCircleIcon),
                 CssClass = "bg-orange-600 text-white",
+                Title = "Technical Lead",
+                From = new DateTime(2023, 2, 1),
+                To = new DateTime(2024, 3, 31)
+            },
+            new()
+            {
+                Type = CareerPathType.Descendant,
+                Icon = typeof(UserCircleIcon),
+                CssClass = "bg-orange-700 text-white",
                 Title = "Software Engineer",
                 From = new DateTime(2018, 12, 1),
                 To = new DateTime(2023, 1, 31)
@@ -157,7 +170,7 @@
 
     private string FormatTimeSpan(CareerPathNode node)
     {
-        var timeSpan = node.To - node.From;
+        var timeSpan = (node.To ?? DateTime.Now) - node.From;
         var years = timeSpan.Days / 365;
         var months = (int)Math.Ceiling(timeSpan.Days / 30.437 - years * 12);
         if (years == 0) return $"{months} {Resources["Months"]}";
@@ -178,7 +191,7 @@
 
         public DateTime From { get; set; }
 
-        public DateTime To { get; set; }
+        public DateTime? To { get; set; }
 
         public string? Description { get; set; }
     }
